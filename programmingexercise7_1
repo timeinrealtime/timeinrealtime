@@ -1,0 +1,66 @@
+//Programming Exercise 7.10 #1
+//This program will display a fraction if the numerator is less than the denominator
+//and a mixed fraction if the numerator is greater than the denominator.
+
+
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main()
+{
+    short numerator = 0;
+    short denominator = 0;
+    short divisor = 0;
+    short remainder = 0;
+
+    cout << "Please enter two integers representing the numerator and denominator of a fraction: \n";
+
+    cout << "Please enter the numerator: ";
+    cin >> numerator;
+
+    cout << "\nPlease enter the denominator: ";
+    cin >> denominator;
+
+    cout << endl;
+
+    if (abs(numerator) == abs(denominator))
+    {
+        if (numerator || denominator < 0)
+            cout << "-" << abs(numerator);
+        else
+            cout << abs(numerator);
+    }
+
+    else if (denominator == 0)
+    {
+        cout << "\nCannot divide by zero!" << endl;
+    }
+
+    else if (numerator && denominator > 0)
+    {
+        if (numerator < denominator)
+            cout << numerator << " / " << denominator << endl;
+        else
+        {
+            divisor = numerator / denominator;
+            remainder = numerator % denominator;
+            cout << divisor << " + " << remainder << " / " << denominator << endl;
+        }
+
+    }
+
+    else
+        if (abs(numerator) < abs(denominator))
+            cout << "-" << abs(numerator) << " / " << abs(denominator) << endl;
+        else
+        {
+            divisor = abs(numerator / denominator);
+            remainder = abs(numerator % denominator);
+            cout << "-" << divisor << " + " << remainder << " / " << abs(denominator) << endl;
+        }
+
+    return 0;
+
+}
